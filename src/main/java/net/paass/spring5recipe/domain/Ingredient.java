@@ -2,6 +2,7 @@ package net.paass.spring5recipe.domain;
 
 import java.math.BigDecimal;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +20,9 @@ public class Ingredient {
 
   private BigDecimal amount;
 
-  @OneToOne
-  private UnitOfMeasure unitOfMeasure;
+  // load every time (OneToOne default behavior)
+  @OneToOne(fetch = FetchType.EAGER)
+  private UnitOfMeasure uom;
 
   @ManyToOne
   private Recipe recipe;
@@ -57,11 +59,11 @@ public class Ingredient {
     this.recipe = recipe;
   }
 
-  public UnitOfMeasure getUnitOfMeasure() {
-    return unitOfMeasure;
+  public UnitOfMeasure getUom() {
+    return uom;
   }
 
-  public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
-    this.unitOfMeasure = unitOfMeasure;
+  public void setUom(UnitOfMeasure uom) {
+    this.uom = uom;
   }
 }
