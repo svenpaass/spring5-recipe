@@ -1,5 +1,6 @@
 package net.paass.spring5recipe.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ public class Category {
 
   // look at Recipe attribute categories and take the join table from there
   @ManyToMany(mappedBy = "categories")
-  private Set<Recipe> recipes;
+  private Set<Recipe> recipes = new HashSet<>();
 
   public Long getId() {
     return id;

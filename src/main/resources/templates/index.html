@@ -2,15 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Recipe Application</title>
+  <title>Recipe Home</title>
 </head>
 <body>
 
-<h1 th:text="'Recipe Application'">Recipe Application</h1>
+<h1>My Recipes!</h1>
 
-<div th:each="recipe : ${recipes}">
-  <a th:href="'/' + ${recipe.getId()}" th:text="${recipe.getDescription()}">Recipe 1</a>
-</div>
-
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+  </tr>
+  <tr th:each="recipe : ${recipes}">
+    <td th:text="${recipe.getId()}">123</td>
+    <td th:text="${recipe.getDescription()}">Tasty Goodness</td>
+  </tr>
+</table>
 </body>
 </html>

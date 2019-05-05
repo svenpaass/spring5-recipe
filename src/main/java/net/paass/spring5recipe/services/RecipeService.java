@@ -5,8 +5,6 @@ import net.paass.spring5recipe.domain.Recipe;
 
 public interface RecipeService {
 
-  Set<Recipe> getAllRecipes();
-
-  Recipe getRecipeById(Long id);
+  Set<Recipe> getRecipes();
 
 }
